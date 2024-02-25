@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2024 at 10:32 AM
+-- Generation Time: Feb 25, 2024 at 05:54 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `perpustakaan`
+-- Database: `perpusfuadi`
 --
 
 -- --------------------------------------------------------
@@ -41,10 +41,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `nama_admin`, `password`, `kode_admin`, `no_tlp`, `role`) VALUES
-(1, 'agung gimang', '1234', 'admin1', '0981726', 'admin'),
-(2, 'esti sitanggang', '4321', 'admin2', '085870283409', 'petugas'),
-(10, 'Sahid ', '12345', 'Admin4', '098790', 'admin'),
-(11, 'Fuadi', '321', 'Fuad44', '09865', 'petugas');
+(1, 'ahmad', '123', 'admin1', '0892728', 'admin'),
+(2, 'fuadi', '321', 'petugas1', '08278992', 'petugas');
 
 -- --------------------------------------------------------
 
@@ -70,16 +68,12 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`cover`, `id_buku`, `kategori`, `judul`, `pengarang`, `penerbit`, `tahun_terbit`, `jumlah_halaman`, `buku_deskripsi`, `isi_buku`) VALUES
-('65cdacca79883.jpg', 'Z01', 'filsafat', 'Sejarah Indonesia ', 'Restu Gunawan, Amurwani Dwi Lestariningsih, dan Sardiman', 'Pusat Kurikulum dan Perbukuan, Balitbang, Kemendikbud', '2017-02-15', 287, 'Mengajarkan tentang sejarah Indonesia', 'Kelas X Sejarah BS press.pdf'),
-('65cdb0340f492.jpg', 'Z02', 'filsafat', 'PENDIDIKAN  AGAMA KRISTEN DAN BUDI PEKERTI', 'Janse Belandina Non-Serrano ', 'Andar Debataraja Lince Pellu', '2024-02-15', 271, 'Mengajarkan tentang agama Kriten', 'Kristen-BG-KLS-XII.pdf'),
-('65cdb26cead35.jpg', 'Z03', 'filsafat', 'Pendididkan Agama Kristen', 'Stephen Suleeman', 'Christina Metallica Samosir', '2017-02-15', 215, 'Memberikan Ilmu yg bermanfaat', 'Kristen Kelas IX Isi BS press.pdf'),
-('65cdb3d0e9638.jpg', 'Z04', 'filsafat', 'Matematika', 'Abdur Rahman As’ari', 'Agung Lukito', '2015-02-15', 343, 'Mengajarkan matematika dng baik', 'Matematika Sm1 SMP Kelas 7 BS press.pdf'),
-('65cdb9f978ca0.jpg', 'Z05', 'filsafat', 'Pendidikan Pancasila ', 'Dwi Astuti setiawan', 'Kementerian Pendidikan', '2017-02-15', 200, 'Menambah ilmu pancasila', 'Pendidikan-Pancasila-BG-KLS-XII.pdf'),
-('65cdbae614863.jpg', 'Z06', 'filsafat', 'Seni Musik', 'Pri Ario damar', 'Pusat Perbukuan Badan Standar', '2017-02-15', 200, 'Mengajarkan seni musik', 'Seni-Musik-BG-KLS-XII.pdf'),
-('65d92b772b9f2.jpg', 'ZID07', 'informatika', 'Dasar-dasar Akutansi', 'Indrastuti Ristiyani Solichatun', 'Kementrian Pendidikan ', '2017-02-24', 312, 'memahami dasar akutansi', 'Dasar-Akuntansi-dan-Lembaga-Keuangan-BS-KLS-X.pdf'),
-('65d92c299ed1f.jpg', 'ZID08', 'bisnis', 'Dasar Teknik Furnitur', 'Sudarmaji Nadya Mirasanti', 'Kementrian Pendidikan ', '2017-01-19', 146, 'memahami dasar teknik furnitur', 'Dasar-Teknik-Furniture-Semester-2-BS-KLS-X.pdf'),
-('65d92cbdbe8db.jpg', 'ZID09', 'novel', 'Dasar-dasar Animasi', 'Nina Tri Daniati', 'Kementrian Pendidikan ', '2022-06-24', 327, 'memahami dasar animasi', 'Dasar-Animasi-BS-KLS-X.pdf'),
-('65b1f040e1949.jpg', 'ZID10', 'bisnis', 'Rich Dad Poor Dad (Robert T. Kiyosaki) (z-lib.org)', 'Robert T. Kiyosaki', 'PT Gramedia', '2014-02-02', 100, 'pppp', 'Rich Dad Poor Dad (Robert T. Kiyosaki) (z-lib.org).pdf');
+('65d9c67b34823.jpg', 'ZID01', 'filsafat', 'Bahasa Inggris', 'Utami Dwi', 'Pusat Kurikulum', '2018-02-02', 168, 'pendalaman berbahasa', ''),
+('65d9c6678ceb2.jpg', 'ZID02', 'bisnis', 'Pendidikan Pancasila dan Kewaragaanegara', 'Yusnawan Lubis', 'Pusat Kurikulum', '2018-02-08', 190, 'Pendalaman Materi PPKN', 'PPKnKelasXIIBGpress.pdf'),
+('65d9c74db3bf0.jpg', 'ZID03', 'Pendidikan', 'Geografi', 'Nisa Maulia', 'Kementrian Pendidikan', '2018-12-02', 170, 'Belajar Geografi', 'Geografi_BG_KLS_XII.pdf'),
+('65daaca51dad9.jpg', 'ZID04', 'Pendidikan', 'Ekonomi', 'Yeni Fitriani', 'Kemenetrian Pendidikan', '2018-07-08', 226, 'Pendalaman Materi Ekonomi', 'Ekonomi_BG_KLS_XII.pdf'),
+('65daaf3becab9.jpg', 'ZID05', 'Pendidikan', 'Dasar Dasar Akuntansi Dan Keuangan Keuangan', 'Indrastuti Ristiyani', 'Kementrian Pendidikan ', '2018-04-18', 312, 'Dasar Akuntansi Lembaga Keuangan', 'Dasar-Akuntansi-dan-Lembaga-Keuangan-BS-KLS-X.pdf'),
+('65daaff6e793d.jpg', 'ZID06', 'Pendidikan', 'Dasar Dasar Animasi', 'Nina Tri Daniati', 'Kementrian Pendidikan ', '2018-09-20', 307, 'Pendalaman Belajar Animasi', 'Dasar-Animasi-BS-KLS-X.pdf');
 
 -- --------------------------------------------------------
 
@@ -100,6 +94,7 @@ INSERT INTO `kategori_buku` (`kategori`) VALUES
 ('filsafat'),
 ('informatika'),
 ('novel'),
+('Pendidikan'),
 ('sains');
 
 -- --------------------------------------------------------
@@ -125,8 +120,7 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`nisn`, `kode_member`, `nama`, `password`, `jenis_kelamin`, `kelas`, `jurusan`, `no_tlp`, `tgl_pendaftaran`) VALUES
-(12345, '12345', 'sahid', '$2y$10$n36ON1hkXlGd.TyqOqbOm.BA.Rsh4FpgTj2uEy3QjSQkSk83sle5G', 'Laki laki', 'XIII', 'Rekayasa Perangkat Lunak', '098765', '2024-02-09'),
-(54321, '4321', 'dihas', '$2y$10$NQkK39JVIPlawzAckBFxCex4BRpXyq1P65x1Ts6V9bwAUUYmYBcVy', 'Laki laki', 'XII', 'Teknik Komputer Jaringan', '098754', '2024-02-24');
+(1122, '01', 'ahmad fuadi', '$2y$10$7nPa4Jd7hmuSqD/6eojAR.TgOyniUhFvcHrgMeN621yvmF4P0xY1K', 'Laki laki', 'XII', 'Sistem Informatika Jaringan dan Aplikasi', '088978526', '2024-02-24');
 
 -- --------------------------------------------------------
 
@@ -169,13 +163,7 @@ CREATE TABLE `pengembalian` (
 --
 
 INSERT INTO `pengembalian` (`id_pengembalian`, `id_peminjaman`, `id_buku`, `nisn`, `id_admin`, `buku_kembali`, `keterlambatan`, `no_tlp`, `harga`) VALUES
-(70, 108, 'ZID09', 12345, 10, '2024-02-24', 'TIDAK', '', 0),
-(71, 109, 'ZID10', 12345, 2, '2024-02-24', 'TIDAK', '', 0),
-(72, 110, 'ZID08', 12345, 10, '2024-02-24', 'TIDAK', '', 0),
-(73, 111, 'ZID09', 12345, 11, '2024-02-24', 'TIDAK', '', 0),
-(75, 117, 'ZID09', 12345, 2, '2024-02-24', 'TIDAK', '085870283409', 25000),
-(76, 118, 'ZID09', 12345, 11, '2024-02-24', 'TIDAK', '09865', 14000),
-(77, 119, 'ZID09', 12345, 2, '2024-02-24', 'TIDAK', '085870283409', 14000);
+(78, 120, 'ZID05', 1122, 2, '2024-02-25', 'TIDAK', '08278992', 25000);
 
 --
 -- Indexes for dumped tables
@@ -241,13 +229,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id_peminjaman` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `id_pengembalian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id_pengembalian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- Constraints for dumped tables
