@@ -25,7 +25,7 @@ if(isset($_POST["tambah"]) ) {
     <link rel="stylesheet" href="../../style.css">
      <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
      <title>Tambah buku || Admin</title>
-     <link rel="icon" href="../../assets/logoh.png" type="image/png">
+     <link rel="icon" href="../../assets/logo2.png" type="image/png">
   </head>
   <style>
     .custom-css-form {

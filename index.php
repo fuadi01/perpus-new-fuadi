@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
     <title>E-perpus.eo</title>
-    <link rel="icon" href="assets/logoh.png" type="image/png">
+    <link rel="icon" href="assets/logo2.png" type="image/png">
   </head>
   <body style="background: url(assets/bg07.jpg) center / cover fixed; ">
     <!--Navbar-->
@@ -74,6 +74,14 @@
       justify-content: center;
       gap: 1.5rem;
     }
+    @media screen and (max-width: 500px) {
+  .card {
+    width: 7.7rem !important;
+  }
+  .card-img-top{
+    height: 170px !important;
+  }
+}
   </style>
   <!--Btn filter data kategori buku-->
   <div class="d-flex gap-2 mt-2 justify-content-center">
@@ -113,7 +121,7 @@
       </div>
     </section>
     
-    <footer class="fixed-bottom shadow-lg bg-subtle p-3" style="color:white;">
+    <footer class="fixed-bottom shadow-lg bg-subtle p-1" style="color:white;">
       <div class="container-fluid d-flex justify-content-between">
       <p class="mt-2">Created by <span class="text-primary"> Ahmad Fuadi</span> © 2024</p>
       </div>

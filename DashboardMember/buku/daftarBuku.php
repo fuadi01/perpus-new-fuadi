@@ -42,7 +42,7 @@ $buku = queryReadData("SELECT * FROM buku WHERE kategori = 'sains'");
     <link rel="stylesheet" href="../../style.css">
      <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
      <title>Daftar Buku || Member</title>
-     <link rel="icon" href="../../assets/logoh.png" type="image/png">
+     <link rel="icon" href="../../assets/logo2.png" type="image/png">
   </head>
   <style>
     .layout-card-custom {

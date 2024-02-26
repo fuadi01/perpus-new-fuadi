@@ -38,7 +38,7 @@ if (isset($_POST["signIn"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../style.css">
      <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
-     <link rel="icon" href="../../assets/logoh.png" type="image/png">
+     <link rel="icon" href="../../assets/logo2.png" type="image/png">
      <title>Sign In || Admin</title>
     </head>
   <body style="background: url(../../assets/bg07.jpg) center / cover fixed;"><br><br><br>

@@ -37,7 +37,7 @@ if(isset($_POST["pinjam"]) ) {
     <link rel="stylesheet" href="../../style.css">
      <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
      <title>Form pinjam Buku || Member</title>
-     <link rel="icon" href="../../assets/logoh.png" type="image/png">
+     <link rel="icon" href="../../assets/logo2.png" type="image/png">
   </head>
   <style>
     .layout-card-custom {
@@ -194,6 +194,7 @@ if(isset($_POST["pinjam"]) ) {
 <div class="input-group mb-3 mt-1">
 <select class="form-select" aria-label="Default select example" name="paket" id="paket" onchange="setReturnDate(this)">
   <option disabled selected>pilih paketan</option>
+  <option value="">Non Paket</option>
   <option value="1">Paket 1</option>
   <option value="2">Paket 2</option>
   <option value="3">Paket 3</option>
@@ -236,64 +237,113 @@ if(isset($_POST["pinjam"]) ) {
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script>
-  function setReturnDate(select) {
-    const returnDateInput = document.getElementById('tgl_pengembalian');
+function setReturnDate() {
     const currentDate = new Date();
     let returnDate = new Date();
 
-    if (select.value === "1") {
-      returnDate.setDate(currentDate.getDate() + 5); 
-    } else if (select.value === "2") {
-      returnDate.setDate(currentDate.getDate() + 10); 
-    } else if (select.value === "3") {
-      returnDate.setDate(currentDate.getDate() + 20); 
-    } else if (select.value === "4") {
-      returnDate.setDate(currentDate.getDate() + 30); 
-    } 
+    const selectedPackage = document.getElementById('paket').value;
+    let daysToAdd = 1; // Default return date if no package is selected
+
+    // Adjust days to add based on the selected package
+    switch (selectedPackage) {
+        case "1":
+            daysToAdd = 5; // Change to the duration of Paket 1
+            break;
+        case "2":
+            daysToAdd = 7; // Change to the duration of Paket 2
+            break;
+        case "3":
+            daysToAdd = 10; // Change to the duration of Paket 3
+            break;
+        default:
+            daysToAdd = 1; // Default return date if no package is selected
+    }
+
+    returnDate.setDate(currentDate.getDate() + daysToAdd);
 
     // Format tanggal untuk input HTML
     const formattedReturnDate = returnDate.toISOString().split('T')[0];
-    returnDateInput.value = formattedReturnDate;
-  }
-</script>
-<script>
-function setPrice() {
-    const priceInput = document.getElementsByName('harga')[0];
-    const paketSelect = document.getElementById('paket');
+    document.getElementById('tgl_pengembalian').value = formattedReturnDate; // Mengubah value langsung ke input tgl_pengembalian
 
-    // Ambil nilai paket yang dipilih
-    const selectedPaket = parseInt(paketSelect.value);
+    setPrice(); // Call setPrice() after setting return date
 
-    // Set harga berdasarkan nilai paket
-    if (selectedPaket === 1) {
-      priceInput.value = 8000;
-    } else if (selectedPaket === 2) {
-      priceInput.value = 14000;
-    } else if (selectedPaket === 3) {
-      priceInput.value = 25000;
-    } else if (selectedPaket === 4) {
-      priceInput.value = 40000;
-    }
-  }
+    // Enable or disable tgl_pengembalian input based on whether a package is selecte
+}
+        function setPrice() {
+            const priceInput = document.getElementsByName('harga')[0];
+            const isPackageSelected = document.getElementById('paket').value !== ""; // Check if a package is selected
 
-  // Panggil fungsi setPrice saat pilihan paket berubah
-  document.getElementById('paket').addEventListener('change', setPrice);
-  </script>
-<script>
-  // Fungsi untuk mengatur tanggal pinjam dengan hari ini
-  function setTodayDate() {
-    const todayDateInput = document.getElementById('tgl_peminjaman');
-    const currentDate = new Date();
+            // Get the selected dates
+            const tglPinjam = new Date(document.getElementById('tgl_peminjaman').value);
+            const tgl = new Date(document.getElementById('tgl_pengembalian').value);
 
-    // Format tanggal untuk input HTML
-    const formattedTodayDate = currentDate.toISOString().split('T')[0];
-    todayDateInput.value = formattedTodayDate;
-  }
+            // Get the difference in days between tgl_peminjaman and tgl_pengembalian
+            const diffTime = Math.abs(tgl - tglPinjam);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  // Panggil fungsi setTodayDate saat halaman dimuat
-  window.onload = function() {
-    setTodayDate();
-  };
+            let pricePerDay;
+
+            if (isPackageSelected) {
+                // Adjust price calculation based on package selection
+                const selectedPackage = parseInt(document.getElementById('paket').value);
+                // Assuming different packages have different prices
+                // You can set prices based on the selected package
+                // Here, we are just setting some arbitrary values
+                switch (selectedPackage) {
+                    case 1:
+                        pricePerDay = 1000; // Price for Paket 1
+                        break;
+                    case 2:
+                        pricePerDay = 900; // Price for Paket 2
+                        break;
+                    case 3:
+                        pricePerDay = 800; // Price for Paket 3
+                        break;
+                    default:
+                        pricePerDay = 1200; // Default price if no package selected
+                }
+            } else {
+                // If no package is selected, set default price per day
+                pricePerDay = 1250; // Default price per day for non-package
+            }
+
+            // Calculate total price
+            const totalPrice = diffDays * pricePerDay;
+            priceInput.value = totalPrice;
+        }
+
+        // Fungsi untuk mengatur tanggal pinjam dengan hari ini
+        function setTodayDate() {
+            const todayDateInput = document.getElementById('tgl_peminjaman');
+            const currentDate = new Date();
+
+            // Format tanggal untuk input HTML
+            const formattedTodayDate = currentDate.toISOString().split('T')[0];
+            todayDateInput.value = formattedTodayDate;
+
+            setReturnDate(); // Call setReturnDate() after setting today's date
+        }
+
+        // Panggil fungsi setTodayDate saat halaman dimuat
+        window.onload = function() {
+            setTodayDate();
+        };
+
+        // Panggil setPrice() saat tgl_peminjaman atau tgl_pengembalian berubah
+        document.getElementById('tgl_peminjaman').addEventListener('change', setPrice);
+        document.getElementById('tgl_pengembalian').addEventListener('change', setPrice);
+
+        // Validasi tanggal tenggat pengembalian
+        document.getElementById('tgl_pengembalian').addEventListener('change', function() {
+            var tglPinjam = document.getElementById('tgl_peminjaman').value;
+            var tglPengembalian = this.value;
+
+            // Bandingkan tanggal tenggat pengembalian dengan tanggal pinjam
+            if (tglPengembalian <= tglPinjam) {
+                alert('Tanggal tenggat pengembalian tidak boleh sebelum atau sama dengan tanggal pinjam');
+                this.value = '';
+            }
+        });
 </script>
 
     <script>

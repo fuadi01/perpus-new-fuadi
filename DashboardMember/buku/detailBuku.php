@@ -11,7 +11,7 @@ $query = queryReadData("SELECT * FROM buku WHERE id_buku = '$idBuku'");
     <link rel="stylesheet" href="../../style.css">
      <script src="https://kit.fontawesome.com/de8de52639.js" crossorigin="anonymous"></script>
      <title>Detail Buku || Member</title>
-     <link rel="icon" href="../../assets/logoh.png" type="image/png">
+     <link rel="icon" href="../../assets/logo2.png" type="image/png">
   </head>
   <body style="background: url(../../assets/bg07.jpg) center / cover fixed; ">
     <nav class="navbar fixed-top shadow-sm">
